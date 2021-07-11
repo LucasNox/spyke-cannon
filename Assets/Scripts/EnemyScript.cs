@@ -15,10 +15,7 @@ public class EnemyScript : MonoBehaviour{
     }
     
     void FixedUpdate(){
-        Vector2 force = (target.position - transform.position);
-        force.Normalize();
-        rb.AddForce(force * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
-        //transform.position = Vector2.MoveTowards(transform.position, target.position, step);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
     }
  
 }
