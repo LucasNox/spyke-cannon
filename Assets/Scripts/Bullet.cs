@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	[SerializeField]
-	private float speed;
-	private Rigidbody2D rb;
+    [SerializeField]
+    private float speed;
+    private Rigidbody2D rb;
+    private int collision;
 
-	public float Speed { get => speed; set => speed = value; }
+    public int maxCollisions = 0;
 
-	private void Awake()
-	{
-		rb = GetComponent<Rigidbody2D>();
-	}
+    public float Speed { get => speed; set => speed = value; }
 
-	public void Propel(Vector2 direction)
-	{
-		rb.AddForce(direction * speed);
-	}
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        Destroy(gameObject);
+    public void Propel(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        collision++;
+        if (collision >= maxCollisions)
+        {
+            Destroy(gameObject);
+        }
     }
 }
