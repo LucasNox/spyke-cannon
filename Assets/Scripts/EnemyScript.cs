@@ -6,16 +6,21 @@
 public class EnemyScript : MonoBehaviour{
 
     private Rigidbody2D rb;
-	public Transform target;
-
-    float speed = 3f;
+    [SerializeField]
+	private Transform target;
+    [SerializeField]
+	private float speed;
+    [SerializeField]
+	private float topSpeed;
 
     void Start(){
         rb = GetComponent<Rigidbody2D>();
     }
     
     void FixedUpdate(){
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
+        rb.AddForce((target.position - transform.position) * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        if (rb.velocity.magnitude > topSpeed)
+            rb.velocity = rb.velocity.normalized * topSpeed;
     }
  
 }
