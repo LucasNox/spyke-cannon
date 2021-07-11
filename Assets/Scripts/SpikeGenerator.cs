@@ -26,61 +26,37 @@ public class SpikeGenerator : MonoBehaviour
     private IEnumerator ChangeSpikes()
     {
         yield return new WaitForSeconds(3);
-
-        Debug.Log("Teste");
         DisableAllSpikes();
-        ChangeSpikesTopOrBottom(bottomSpikes);
-        ChangeSpikesTopOrBottom(topSpikes);
-        ChangeSpikesRightOrLeft(leftSpikes);
-        ChangeSpikesRightOrLeft(rightSpikes);
+
+        //Random Spikes top
+        for (int i = 0; i < 10; i++)
+        {
+            int random = Random.Range(0, 16);
+            topSpikes[random].SetActive(true);
+        }
+
+        //Random Spikes bottom
+        for (int i = 0; i < 10; i++)
+        {
+            int random = Random.Range(0, 16);
+            bottomSpikes[random].SetActive(true);
+        }
+
+        //Random Spikes left
+        for (int i = 0; i < 3; i++)
+        {
+            int random = Random.Range(0, 5);
+            leftSpikes[random].SetActive(true);
+        }
+
+        //Random Spikes right
+        for (int i = 0; i < 3; i++)
+        {
+            int random = Random.Range(0, 5);
+            rightSpikes[random].SetActive(true);
+        }
 
         StartCoroutine(ChangeSpikes());
-    }
-
-    private void ChangeSpikesTopOrBottom(GameObject[] objArray)
-    {
-        int min = 0;
-        int max = 16;
-        int[] randomSpikes = new int[8];
-
-        int i = 0;
-        while (i < 8)
-        {
-            int randomNumber = Random.Range(min, max);
-            if (randomSpikes.Contains<int>(randomNumber))
-            {
-                randomSpikes[i] = randomNumber;
-                i++;
-            }
-        }
-
-        foreach (int spike in randomSpikes)
-        {
-            objArray[spike].SetActive(true);
-        }
-    }
-
-    private void ChangeSpikesRightOrLeft(GameObject[] objArray)
-    {
-        int min = 0;
-        int max = 6;
-        int[] randomSpikes = new int[4];
-
-        int i = 0;
-        while (i < 4)
-        {
-            int randomNumber = Random.Range(min, max);
-            if (randomSpikes.Contains<int>(randomNumber))
-            {
-                randomSpikes[i] = randomNumber;
-                i++;
-            }
-        }
-
-        foreach (int spike in randomSpikes)
-        {
-            objArray[spike].SetActive(true);
-        }
     }
 
     private void DisableAllSpikes()
