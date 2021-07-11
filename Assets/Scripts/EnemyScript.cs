@@ -13,7 +13,8 @@ public class EnemyScript : MonoBehaviour{
     [SerializeField]
 	private float topSpeed;
 
-    void Start(){
+    void Awake(){
+        target = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
     
