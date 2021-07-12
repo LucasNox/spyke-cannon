@@ -31,6 +31,8 @@ public class Bullet : MonoBehaviour
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+            ScoreScript ss = GameObject.Find("Score").GetComponent<ScoreScript>();
+            ss.AddScore();
         }
         collision++;
         if (collision >= maxCollisions)
