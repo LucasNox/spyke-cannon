@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7615414633048529579}
   m_Layer: 7
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4551fe0073839e24dbc508b787e62ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
-  maxCollisions: 3
+  speed: 700
+  maxCollisions: 2
   explosion: {fileID: 1802617302323192059, guid: 7b519f9cf3a5cad438ccf1afa9e0e38e, type: 3}
