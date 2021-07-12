@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   maxCollisions: 3
+  explosion: {fileID: 1802617302323192059, guid: 7b519f9cf3a5cad438ccf1afa9e0e38e, type: 3}

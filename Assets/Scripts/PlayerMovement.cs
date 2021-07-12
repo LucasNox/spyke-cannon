@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-
-    public HealthBar hpBar;
-
     [SerializeField]
     private float turnSpeed;
     [SerializeField]
@@ -22,9 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-
-        currentHealth = maxHealth;
-        hpBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -49,20 +41,5 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.up * bullet.Speed * repulsionFraction * -1);
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        //Check to see if the tag on the collider is equal to Enemy
-        if (other.gameObject.tag == "Spike")
-        {
-            TakeDamage(5);
-        }
-    }
-
-    private void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        hpBar.SetHealth(currentHealth);
     }
 }
