@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   score: 0
+  scoreAux: 10
 --- !u!114 &-3072001098076260226
 MonoBehaviour:
   m_ObjectHideFlags: 0

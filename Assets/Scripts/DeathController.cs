@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
 {
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.R))
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Player Death Test");
+            SceneManager.LoadScene("Game");
         }
     }
 }
