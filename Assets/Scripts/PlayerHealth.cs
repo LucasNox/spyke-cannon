@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public CameraShaker cameraShaker;
     [SerializeField]
     private int maxHealth = 100;
     private int currentHealth;
@@ -12,7 +13,8 @@ public class PlayerHealth : MonoBehaviour
     private HealthBar hpBar;
     private bool dead = false;
 
-    private void Start() {
+    private void Start()
+    {
         currentHealth = maxHealth;
         hpBar.SetMaxHealth(maxHealth);
     }
@@ -22,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         Damager dmg = other.gameObject.GetComponent<Damager>();
         if (dmg)
         {
+            StartCoroutine(cameraShaker.Shake(0.3f, 0.06f));
             TakeDamage(dmg.Damage);
         }
     }

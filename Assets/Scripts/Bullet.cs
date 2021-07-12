@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
 
     public int maxCollisions = 0;
 
+    public GameObject explosion;
+
     public float Speed { get => speed; set => speed = value; }
 
     private void Awake()
@@ -28,6 +30,7 @@ public class Bullet : MonoBehaviour
         collision++;
         if (collision >= maxCollisions)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
